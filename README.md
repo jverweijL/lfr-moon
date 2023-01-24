@@ -1,3 +1,22 @@
+# Create steps
+```
+npm init react-app moon
+```
+
+# Clone steps
+```
+git clone [repo]
+cd [repo]
+npm install
+npm start
+``` 
+
+# Deploy/Use steps
+```
+define custom app in Liferay
+use https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css for css url
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

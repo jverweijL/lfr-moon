@@ -4,10 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const ELEMENT_ID = 'lfr-moon';
+
+class WebComponent extends HTMLElement {
+  connectedCallback() {
+    const root = ReactDOM.createRoot(this);
+    root.render(
+      <React.StrictMode>
+        <App/>
+      </React.StrictMode>
+    );
+  }
+}
+
+if (!customElements.get(ELEMENT_ID)) {
+  customElements.define(ELEMENT_ID, WebComponent);
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>
 );
 
