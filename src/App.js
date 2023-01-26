@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 import './App.css';
@@ -48,7 +48,7 @@ useEffect(() => {
 }, []);
   return (
     <div className="App">
-      <i className={'wi ' +  moonphase[Math.floor(data.moon_azimuth/12.85714286)]}></i>
+      <i className={'wi ' +  moonphase[Math.floor(data.moon_azimuth/12.85714286)]} title={'phase ' +  (Math.floor(data.moon_azimuth/12.85714286) + 1) + ' of 28'}></i>
     </div>
   );
 }
