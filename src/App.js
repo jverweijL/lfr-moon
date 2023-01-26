@@ -45,7 +45,7 @@ useEffect(() => {
       console.log("data: " + JSON.stringify(data));
 
 // empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, []);
+}, [data,setData]);
   return (
     <div className="App">
       <i className={'wi ' +  moonphase[Math.floor(data.moon_azimuth/12.85714286)]} title={'phase ' +  (Math.floor(data.moon_azimuth/12.85714286) + 1) + ' of 28'}></i>
