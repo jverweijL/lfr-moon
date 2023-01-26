@@ -1,11 +1,54 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import './App.css';
 import './css/weather-icons.min.css';
 
-function App(props) {
+const apikey="279d562f2dd347978b81ea324699cf9e";
+const moonphase = ["wi-moon-new",
+"wi-moon-waxing-crescent-1",
+"wi-moon-waxing-crescent-2",
+"wi-moon-waxing-crescent-3",
+"wi-moon-waxing-crescent-4",
+"wi-moon-waxing-crescent-5",
+"wi-moon-waxing-crescent-6",
+"wi-moon-first-quarter",
+"wi-moon-waxing-gibbous-1",
+"wi-moon-waxing-gibbous-2",
+"wi-moon-waxing-gibbous-3",
+"wi-moon-waxing-gibbous-4",
+"wi-moon-waxing-gibbous-5",
+"wi-moon-waxing-gibbous-6",
+"wi-moon-full",
+"wi-moon-waning-gibbous-1",
+"wi-moon-waning-gibbous-2",
+"wi-moon-waning-gibbous-3",
+"wi-moon-waning-gibbous-4",
+"wi-moon-waning-gibbous-5",
+"wi-moon-waning-gibbous-6",
+"wi-moon-third-quarter",
+"wi-moon-waning-crescent-1",
+"wi-moon-waning-crescent-2",
+"wi-moon-waning-crescent-3",
+"wi-moon-waning-crescent-4",
+"wi-moon-waning-crescent-5",
+"wi-moon-waning-crescent-6"];
+
+function App() {
+//          "https://api.ipgeolocation.io/astronomy?apiKey=API_KEY"
+const [data, setData] = React.useState([]);
+
+useEffect(() => {
+  // GET request using axios inside useEffect React hook
+  axios.get('https://api.ipgeolocation.io/astronomy?apiKey='+apikey )
+      .then(response => setData(response.data));
+      console.log("data: " + JSON.stringify(data));
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+}, []);
   return (
     <div className="App">
-      moon
-      <i class="wi wi-night-sleet"></i>
+      <i className={'wi ' +  moonphase[Math.floor(data.moon_azimuth/12.85714286)]}></i>
     </div>
   );
 }
