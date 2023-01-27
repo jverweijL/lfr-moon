@@ -38,14 +38,16 @@ function App() {
 //          "https://api.ipgeolocation.io/astronomy?apiKey=API_KEY"
 const [data, setData] = React.useState([]);
 
-useEffect(() => {
-  // GET request using axios inside useEffect React hook
-  axios.get('https://api.ipgeolocation.io/astronomy?apiKey='+apikey )
-      .then(response => setData(response.data));
-      console.log("data: " + JSON.stringify(data));
 
-// empty dependency array means this effect will only run once (like componentDidMount in classes)
-}, [data,setData]);
+componentDidMount(props) {
+  axios.get(`https://api.ipgeolocation.io/astronomy?apiKey='${apikey}`)
+    .then(response => {
+      const result = response.data;
+      this.setState({ result });
+      
+      }
+    )
+  }
   return (
     <div className="App">
       <i className={'wi ' +  moonphase[Math.floor(data.moon_azimuth/12.85714286)]} title={'phase ' +  (Math.floor(data.moon_azimuth/12.85714286) + 1) + ' of 28'}></i>
