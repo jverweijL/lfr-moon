@@ -14,7 +14,10 @@ npm start
 # Deploy/Use steps
 ```
 define custom app in Liferay
-use https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css for css url
+custom element: lfr-moon
+js url: https://lfr-moon.netlify.app/ and check source for latest .js
+css url: https://lfr-moon.netlify.app/ and check source for latest .css
+css url: https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css
 ```
 
 # Getting Started with Create React App
